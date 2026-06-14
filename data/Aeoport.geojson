@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "Aeoport",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "CODE": 6150010, "TYPE": 1, "NOM": "Cap Skiring", "ETAT_AER": 1, "STATUT_AER": 1, "THEME": "TR", "PAYS": "SN", "IDUU": "1727e09e-910d-44cc-ac74-f49a7feb8296" }, "geometry": { "type": "Point", "coordinates": [ -16.747064751089891, 12.394147769091903 ] } },
+{ "type": "Feature", "properties": { "CODE": 6150010, "TYPE": 1, "NOM": "Ziguinchor", "ETAT_AER": 1, "STATUT_AER": 1, "THEME": "TR", "PAYS": "SN", "IDUU": "c4f240c9-a3e5-4e06-b3f7-37659ff44996" }, "geometry": { "type": "Point", "coordinates": [ -16.281700535113174, 12.555747947072161 ] } }
+]
+}

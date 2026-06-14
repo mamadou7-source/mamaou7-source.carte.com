@@ -1,0 +1,271 @@
+/* ===== STYLES PLEIN ÉCRAN ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+}
+#map {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+/* ===== PANNEAU ITINÉRAIRE (drawer) ===== */
+.itinerary-drawer {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    z-index: 2000;
+    background: transparent;
+    box-shadow: none;
+}
+.itinerary-drawer.drawer-visible {
+    transform: translateX(0);
+}
+.drawer-content {
+    background: white;
+    border-radius: 0 16px 16px 0;
+    box-shadow: 4px 2px 12px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+.itinerary-tab-container {
+    background: white;
+    border-radius: 12px;
+    width: 280px;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    border: none;
+}
+.itinerary-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #ff9800;
+    padding-bottom: 6px;
+}
+.itinerary-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+.itinerary-input-group {
+    margin-bottom: 10px;
+}
+.itinerary-input-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 4px;
+    margin-left: 4px;
+}
+.input-with-location {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+.input-with-location input {
+    flex: 1;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 24px;
+    font-size: 0.8rem;
+    box-sizing: border-box;
+}
+.input-with-location input:focus {
+    outline: none;
+    border-color: #ff9800;
+    box-shadow: 0 0 0 2px rgba(255,152,0,0.2);
+}
+.location-btn {
+    background: #e9ecef;
+    border: none;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+.location-btn:hover {
+    background: #ff9800;
+    color: white;
+}
+.itinerary-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 12px 0 10px;
+}
+.btn-route {
+    flex: 1;
+    background: #ff9800;
+    border: none;
+    padding: 7px 0;
+    border-radius: 28px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+.btn-route:hover {
+    background: #e68900;
+}
+.btn-clear {
+    background: #6c757d;
+}
+.btn-clear:hover {
+    background: #5a6268;
+}
+.route-info {
+    background: #f8f9fa;
+    border-radius: 14px;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    margin-top: 8px;
+    border-left: 4px solid #ff9800;
+    display: none;
+}
+.route-info p {
+    margin: 4px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.route-info span {
+    font-weight: 700;
+}
+.loading-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-radius: 50%;
+    border-top-color: #ff9800;
+    animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+.error-message {
+    color: #d32f2f;
+    background: #ffebee;
+    border-radius: 18px;
+    padding: 6px 10px;
+    font-size: 0.7rem;
+    margin-top: 8px;
+    text-align: center;
+}
+.start-marker-icon, .end-marker-icon {
+    background: none;
+    font-size: 24px;
+    text-shadow: 0 0 2px white;
+}
+.start-marker-icon { color: #2e7d32; }
+.end-marker-icon { color: #d32f2f; }
+
+/* Bouton personnalisé pour Outils */
+.custom-tools-button {
+    background: white;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #2c3e50;
+    border: none;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+}
+.custom-tools-button:hover {
+    background: #f4f4f4;
+}
+
+/* Styles pour les boutons dans les popups */
+.popup-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    justify-content: flex-end;
+}
+.popup-buttons button {
+    background: #ff9800;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s;
+}
+.popup-buttons button:first-child {
+    background: #2c3e50;
+}
+.popup-buttons button:hover {
+    opacity: 0.85;
+}
+.leaflet-popup-content {
+    min-width: 220px;
+}
+
+/* ===== STYLES POUR LES ÉTIQUETTES DE MESURE (segments) ===== */
+.measure-label {
+    background: white;
+    border: 1px solid #ff9800;
+    border-radius: 14px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    pointer-events: none;
+    font-family: monospace;
+}
+.measure-label::before {
+    content: "📏 ";
+    font-size: 10px;
+}
+
+/* Panneau d'info mesure (optionnel) */
+.measurement-panel {
+    position: absolute;
+    bottom: 30px;
+    right: 12px;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px);
+    color: white;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: bold;
+    z-index: 1000;
+    pointer-events: none;
+    font-family: monospace;
+    border-left: 4px solid #ff9800;
+    display: none;
+}
+.measurement-panel i {
+    margin-right: 6px;
+}
