@@ -1,7 +1,7 @@
 // ==========================
 // 1. INITIALISATION CARTE
 // ==========================
-const map = L.map('map', { zoomControl: false }).setView([12.75, -16.2667], 15);
+const map = L.map('map', { zoomControl: false }).setView([12.75, -16.2667], 10);
 L.control.zoom({ position: 'bottomleft' }).addTo(map);
 
 L.control.locate({
